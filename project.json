@@ -1,0 +1,20 @@
+{
+  "overview": "An interactive 3D molecule viewer that shows the final shape after lone-pair repulsion and lets you compare it with the idealised shape side by side.",
+  "features": [
+    "Explore 26 molecules in an interactive 3D view",
+    "See the real shape after lone-pair repulsion, like Bent or Seesaw",
+    "Compare with and without lone pairs in a synchronised split view",
+    "Read the bond-angle change caused by lone pairs",
+    "Search molecules and filter by category",
+    "Toggle lone-pair markers and bond-angle overlays"
+  ],
+  "category": "education",
+  "tags": [
+    "chemistry",
+    "3d",
+    "education",
+    "visualization",
+    "vsepr"
+  ],
+  "last_updated": "2026-10-06T02:43:48.333Z"
+}

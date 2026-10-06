@@ -1,0 +1,379 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "DM Sans";
+    --font-mono: "JetBrains Mono";
+    --radius: 0.625rem;
+
+    --background: 0.16 0.02 258;
+    --foreground: 0.97 0.006 230;
+    --card: 0.21 0.022 256;
+    --card-foreground: 0.97 0.006 230;
+    --popover: 0.21 0.022 256;
+    --popover-foreground: 0.97 0.006 230;
+
+    --primary: 0.78 0.15 215;
+    --primary-foreground: 0.16 0.02 258;
+
+    --secondary: 0.26 0.024 256;
+    --secondary-foreground: 0.9 0.008 230;
+    --muted: 0.26 0.024 256;
+    --muted-foreground: 0.66 0.014 240;
+
+    --accent: 0.82 0.17 80;
+    --accent-foreground: 0.18 0.03 60;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.97 0.006 230;
+    --success: 0.75 0.16 160;
+    --warning: 0.82 0.17 80;
+
+    --border: 0.32 0.024 256;
+    --input: 0.32 0.024 256;
+    --ring: 0.78 0.15 215;
+
+    --chart-1: 0.78 0.15 215;
+    --chart-2: 0.82 0.17 80;
+    --chart-3: 0.7 0.14 250;
+    --chart-4: 0.75 0.16 160;
+    --chart-5: 0.68 0.2 25;
+
+    --sidebar: 0.21 0.022 256;
+    --sidebar-foreground: 0.97 0.006 230;
+    --sidebar-primary: 0.78 0.15 215;
+    --sidebar-primary-foreground: 0.16 0.02 258;
+    --sidebar-accent: 0.26 0.024 256;
+    --sidebar-accent-foreground: 0.9 0.008 230;
+    --sidebar-border: 0.32 0.024 256;
+    --sidebar-ring: 0.78 0.15 215;
+
+    /* Dark card / bottom-sheet surfaces */
+    --surface: 0.24 0.024 256;
+    --surface-2: 0.29 0.026 256;
+    --sheet: 0.21 0.022 256;
+
+    /* Glass surfaces & atmosphere */
+    --glass: 0.26 0.024 256;
+    --glass-strong: 0.21 0.022 256;
+    --glass-border: 0.97 0.01 230;
+    --grid-line: 0.34 0.03 235;
+
+    /* Shadow hierarchy (referenced by utilities) */
+    --shadow-glass: 0 8px 32px -8px rgb(0 0 0 / 0.55), 0 1px 0 0
+      rgb(255 255 255 / 0.05) inset;
+    --shadow-elevated: 0 20px 48px -16px rgb(0 0 0 / 0.7), 0 2px 0 0
+      rgb(255 255 255 / 0.04) inset;
+
+    /* CPK element colors (literals allowed for Canvas/WebGL) */
+    --cpk-h: 0.97 0.005 220;
+    --cpk-c: 0.28 0.012 260;
+    --cpk-n: 0.55 0.2 260;
+    --cpk-o: 0.6 0.22 25;
+    --cpk-f: 0.75 0.18 145;
+    --cpk-cl: 0.72 0.2 140;
+    --cpk-s: 0.78 0.18 85;
+    --cpk-p: 0.7 0.2 55;
+    --cpk-be: 0.78 0.14 120;
+    --cpk-b: 0.68 0.16 35;
+    --cpk-br: 0.5 0.18 35;
+    --cpk-xe: 0.6 0.2 300;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.82 0.15 210),
+      oklch(0.72 0.16 225)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      oklch(0.24 0.024 256 / 0.9),
+      oklch(0.18 0.02 258 / 0.75)
+    );
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Deep navy-black lab canvas (reference #0A0F1A) */
+    --background: 0.16 0.02 258;
+    --foreground: 0.97 0.006 230;
+    --card: 0.21 0.022 256;
+    --card-foreground: 0.97 0.006 230;
+    --popover: 0.21 0.022 256;
+    --popover-foreground: 0.97 0.006 230;
+
+    /* Teal/cyan primary accent (reference #00D1FF) */
+    --primary: 0.78 0.15 215;
+    --primary-foreground: 0.16 0.02 258;
+
+    --secondary: 0.26 0.024 256;
+    --secondary-foreground: 0.9 0.008 230;
+    --muted: 0.26 0.024 256;
+    --muted-foreground: 0.66 0.014 240;
+
+    /* Amber/orange secondary accent (reference #FFB300) */
+    --accent: 0.82 0.17 80;
+    --accent-foreground: 0.18 0.03 60;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.97 0.006 230;
+    --success: 0.75 0.16 160;
+    --warning: 0.82 0.17 80;
+
+    --border: 0.32 0.024 256;
+    --input: 0.32 0.024 256;
+    --ring: 0.78 0.15 215;
+
+    --chart-1: 0.78 0.15 215;
+    --chart-2: 0.82 0.17 80;
+    --chart-3: 0.7 0.14 250;
+    --chart-4: 0.75 0.16 160;
+    --chart-5: 0.68 0.2 25;
+
+    --sidebar: 0.21 0.022 256;
+    --sidebar-foreground: 0.97 0.006 230;
+    --sidebar-primary: 0.78 0.15 215;
+    --sidebar-primary-foreground: 0.16 0.02 258;
+    --sidebar-accent: 0.26 0.024 256;
+    --sidebar-accent-foreground: 0.9 0.008 230;
+    --sidebar-border: 0.32 0.024 256;
+    --sidebar-ring: 0.78 0.15 215;
+
+    /* Dark card / bottom-sheet surfaces */
+    --surface: 0.24 0.024 256;
+    --surface-2: 0.29 0.026 256;
+    --sheet: 0.21 0.022 256;
+
+    --glass: 0.26 0.024 256;
+    --glass-strong: 0.21 0.022 256;
+    --glass-border: 0.97 0.01 230;
+    --grid-line: 0.34 0.03 235;
+
+    /* Shadow hierarchy (referenced by utilities) */
+    --shadow-glass: 0 8px 32px -8px rgb(0 0 0 / 0.6), 0 1px 0 0
+      rgb(255 255 255 / 0.06) inset;
+    --shadow-elevated: 0 24px 56px -18px rgb(0 0 0 / 0.78), 0 2px 0 0
+      rgb(255 255 255 / 0.05) inset;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .font-display {
+    font-family: var(--font-display), sans-serif;
+  }
+  .font-body {
+    font-family: var(--font-body), sans-serif;
+  }
+  .font-mono {
+    font-family: var(--font-mono), monospace;
+  }
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glass-panel {
+    background: oklch(var(--glass) / 0.55);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid oklch(var(--glass-border) / 0.14);
+    box-shadow: var(--shadow-glass);
+  }
+  .glass-panel-strong {
+    background: oklch(var(--glass-strong) / 0.72);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid oklch(var(--glass-border) / 0.18);
+    box-shadow: var(--shadow-glass);
+  }
+  .grid-background {
+    background-color: oklch(var(--background));
+    background-image: linear-gradient(
+        to right,
+        oklch(var(--grid-line) / 0.4) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        oklch(var(--grid-line) / 0.4) 1px,
+        transparent 1px
+      );
+    background-size: 44px 44px;
+  }
+  .shadow-glass {
+    box-shadow: var(--shadow-glass);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  /* Dark card / row surface from reference screenshots */
+  .surface-card {
+    background: oklch(var(--surface));
+    border: 1px solid oklch(var(--border) / 0.8);
+    border-radius: 1rem;
+  }
+  .surface-row {
+    background: oklch(var(--surface-2));
+    border: 1px solid oklch(var(--border) / 0.6);
+    border-radius: 1rem;
+  }
+  /* Pill chip: teal outline when active, muted when idle */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid oklch(var(--border));
+    background: oklch(var(--surface) / 0.6);
+    color: oklch(var(--muted-foreground));
+    transition: var(--transition-smooth);
+  }
+  .chip-active {
+    border-color: oklch(var(--primary) / 0.9);
+    color: oklch(var(--primary));
+    background: oklch(var(--primary) / 0.12);
+  }
+  /* Teal list accent bar (left edge of molecule rows) */
+  .accent-bar {
+    width: 3px;
+    border-radius: 9999px;
+    background: oklch(var(--primary));
+  }
+  /* Amber emphasis for lone pairs / electron geometry */
+  .text-accent-amber {
+    color: oklch(var(--accent));
+  }
+  .border-accent-amber {
+    border-color: oklch(var(--accent) / 0.7);
+  }
+  .bg-accent-amber {
+    background-color: oklch(var(--accent));
+  }
+  /* Segmented control: amber active segment, dark inset track */
+  .segment-track {
+    display: inline-flex;
+    padding: 3px;
+    gap: 3px;
+    border-radius: 0.75rem;
+    background: oklch(var(--background) / 0.7);
+    border: 1px solid oklch(var(--border) / 0.7);
+  }
+  .segment {
+    padding: 0.35rem 0.9rem;
+    border-radius: 0.55rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: oklch(var(--muted-foreground));
+    transition: var(--transition-smooth);
+  }
+  .segment-active {
+    background: oklch(var(--accent));
+    color: oklch(var(--accent-foreground));
+  }
+  /* Search bar from reference */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    border-radius: 1.25rem;
+    background: oklch(var(--surface) / 0.85);
+    border: 1px solid oklch(var(--border) / 0.8);
+    color: oklch(var(--foreground));
+  }
+  /* Bottom sheet with rounded top corners */
+  .bottom-sheet {
+    background: oklch(var(--sheet));
+    border-top: 1px solid oklch(var(--border) / 0.7);
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    box-shadow: 0 -16px 48px -20px rgb(0 0 0 / 0.8);
+  }
+  /* Drag handle */
+  .sheet-handle {
+    width: 2.5rem;
+    height: 0.25rem;
+    border-radius: 9999px;
+    background: oklch(var(--border));
+  }
+  /* Teal atomic-orbit badge glow */
+  .badge-orbit {
+    background: var(--gradient-primary);
+    box-shadow: 0 0 0 1px oklch(var(--primary) / 0.4), 0 6px 20px -6px
+      oklch(var(--primary) / 0.55);
+  }
+  /* Bottom details sheet anchor */
+  .sheet-anchor {
+    background: oklch(var(--glass-strong) / 0.82);
+    backdrop-filter: blur(28px) saturate(150%);
+    -webkit-backdrop-filter: blur(28px) saturate(150%);
+    border-top: 1px solid oklch(var(--glass-border) / 0.16);
+    box-shadow: 0 -16px 48px -20px rgb(0 0 0 / 0.8);
+  }
+  /* Split comparison view: framed panes over the grid canvas */
+  .compare-pane {
+    background: oklch(var(--surface) / 0.35);
+    box-shadow: var(--shadow-glass);
+  }
+  .compare-summary {
+    background: oklch(var(--glass-strong) / 0.82);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    box-shadow: var(--shadow-glass);
+  }
+  /* CPK legend dot */
+  .cpk-dot {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.18) inset;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(var(--border)) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: oklch(var(--border));
+    border-radius: 9999px;
+  }
+}
